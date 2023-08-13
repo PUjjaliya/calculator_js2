@@ -4,7 +4,8 @@ padding: 0px;}
 body{
     display: flex;
     justify-content: center; 
-    background: linear-gradient(45deg, #0a0a0a, #3a4452);
+    background: linear-gradient(rgb(255, 255, 255),rgb(86, 214, 231));
+    background-repeat: no-repeat;
 }
 .calculator{
     display: inline-block;
