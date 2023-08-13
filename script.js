@@ -50,7 +50,7 @@ DivideBtn.addEventListener('click', () => {
 
 Cbtn.addEventListener('click', () => {
     input.placeholder = "";
-    document.getElementById('Result').innerText =   "0";
+    document.getElementById('Result').innerText = "0";
 
 })
 cbtn.addEventListener('click', () => {
@@ -69,9 +69,9 @@ cbtn.addEventListener('click', () => {
     if (input.placeholder.slice(-1) === ("/")) {
         input.placeholder = input.placeholder.slice(0, -1);
     }
-    let a=eval(input.placeholder);
+    let a = eval(input.placeholder);
     R.innerText = "=" + `${a}`;
-    
+
 });
 
 
@@ -118,10 +118,10 @@ function Result() {
     document.getElementById('Result').innerText = "=" + `${NewInput}`;
 }
 //
-function Equal(){
-//Short double operator adjacently
+function Equal() {
+    //Short double operator adjacently
 
-input.placeholder=NewInput;
+    input.placeholder = NewInput;
 }
 
 
@@ -141,8 +141,31 @@ document.onkeyup = (e) => {
     if (e.key == '-') { appendOp('-'); }
     if (e.key == '*') { appendOp('*'); }
     if (e.key == '/') { appendOp('/'); }
-    if (e.key === "Backspace") { input.placeholder = input.placeholder.slice(0, -1); }
+    if (e.key === "Backspace") {
+
+        input.placeholder = input.placeholder.slice(0, -1);
+        //agar last mei operator h too ye use hata dega--------->
+        CheckLast();
+        let a = eval(input.placeholder);
+        R.innerText = "=" + `${a}`;
+    }
     if (e.key == '') { appendno(); }
     if (e.key == "Enter") { Equal(); }
 
+}
+
+//agar last mei operator h too ye use hata dega uska function--------->//agar last mei operator h too ye use hata dega--------->
+function CheckLast(){
+    if (input.placeholder.slice(-1) === ("+")) {
+        input.placeholder = input.placeholder.slice(0, -1);
+    }
+    if (input.placeholder.slice(-1) === ("-")) {
+        input.placeholder = input.placeholder.slice(0, -1);
+    }
+    if (input.placeholder.slice(-1) === ("*")) {
+        input.placeholder = input.placeholder.slice(0, -1);
+    }
+    if (input.placeholder.slice(-1) === ("/")) {
+        input.placeholder = input.placeholder.slice(0, -1);
+    }
 }
